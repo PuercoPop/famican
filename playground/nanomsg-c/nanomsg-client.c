@@ -22,7 +22,7 @@ main(int argc, char **argv)
     goto cleanup;
   };
 
-  char *data = "NYAN CAT\0";
+  char *data = "NYAN CAT";
   int data_len = strlen(data) + 1;
 
   int bytes = nn_send(sock, data, data_len, NN_DONTWAIT);
