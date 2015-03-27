@@ -25,14 +25,16 @@ main(int argc, char **argv)
   char *data = "NYAN CAT";
   int data_len = strlen(data) + 1;
 
-  int bytes = nn_send(sock, data, data_len, NN_DONTWAIT);
-  printf("Sent nyan data\n");
-  /* printf("Error: %s\n", strerror(errno)); */
+  int count = 100;
+  while(count--) {
+    int bytes = nn_send(sock, data, data_len, 0);
+    printf("Sent nyan data\n");
 
-  if (bytes < 0) {
-    goto cleanup;
-  };
+    if (bytes < 0) {
       printf("%s\n", strerror(errno));
+      goto cleanup;
+    };
+  }
 
  cleanup:
   return nn_shutdown(sock, endpoint_id);
