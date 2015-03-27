@@ -18,7 +18,7 @@ main(int argc, char **argv)
   int endpoint_id = nn_connect(sock, "tcp://127.0.0.1:8800");
 
   if ( endpoint_id < 0 ) {
-    printf("%s", strerror(errno));
+    printf("%s\n", strerror(errno));
     goto cleanup;
   };
 
@@ -30,9 +30,9 @@ main(int argc, char **argv)
   /* printf("Error: %s\n", strerror(errno)); */
 
   if (bytes < 0) {
-    printf("%s", strerror(errno));
     goto cleanup;
   };
+      printf("%s\n", strerror(errno));
 
  cleanup:
   return nn_shutdown(sock, endpoint_id);
