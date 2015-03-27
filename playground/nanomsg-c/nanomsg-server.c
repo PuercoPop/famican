@@ -38,7 +38,7 @@ main(int argc, char **argv)
 
   while (1)
     {
-      bytes = nn_recv(sock, &buf, sizeof(buf), 0);
+      bytes = nn_recv(sock, buf, sizeof(buf), 0);
       if (bytes < 0) {
         printf("%s", strerror(errno));
         goto cleanup;
